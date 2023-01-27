@@ -1,15 +1,8 @@
-const cart = [54, 28, 105, 70, 92, 17, 120];
-let total = 0;
-// console.table(cart);
+const categoriesList = document.querySelectorAll('.item');
+console.log(`Number of categories: ${categoriesList.length}`)
 
-// for (let i = 0; i < cart.length; i += 1) {
-//     console.log (cart [i]);
+categoriesList.forEach(item => {
+    console.log(`Category: ${item.firstElementChild.textContent}`);
+    console.log(`Elements: ${item.lastElementChild.children.length}`)
+});
 
-//     total += cart [i];
-// }
-
-for (const value of cart) {
-    total += value;
-}
-
-console.log ('Total: ',total);
