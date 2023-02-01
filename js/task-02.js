@@ -1,4 +1,4 @@
-const ingredients = [
+const ingredientsMas = [
   'Potatoes',
   'Mushrooms',
   'Garlic',
@@ -6,8 +6,15 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const ulEl = document.querySelector('#ingredients');
+const proceedMarcup = ingredientsMas.map(ingredient => {
+  const li = document.createElement('li');
+  li.textContent = ingredient;
+  li.classList.add('item');
+  return li;
+});
 
-const list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+const ingredients = document.querySelector('ul#ingredients');
 
-ulEl.innerHTML = list;
+
+ingredients.append(...proceedMarcup);
+

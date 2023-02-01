@@ -1,16 +1,12 @@
-let inputEl = document.querySelector('#validation-input');
 
-let inputLength = inputEl.dataset.length;
+const textInput = document.querySelector('#validation-input');
 
-const input = document.querySelector('input');
-inputEl.addEventListener('change', e => {
-  const text = e.target.value;
+textInput.addEventListener('change', e => {
 
-  if (text.length === +inputLength) {
-    inputEl.classList.add('valid');
-    inputEl.classList.remove('invalid');
-  } else {
-    inputEl.classList.remove('valid');
-    inputEl.classList.add('invalid');
-  }
+  if (textInput.value.length === Number(textInput.dataset.length)) {
+    textInput.classList.remove("invalid");
+    return textInput.classList.add("valid");
+}
+return textInput.classList.add("invalid");
 });
+

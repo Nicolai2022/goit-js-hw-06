@@ -1,21 +1,17 @@
-let valueEl = Number(document.querySelector('#value').textContent);
-
-let counterValue = document.querySelector('#value');
-
-const dekrBtn = document.querySelector('#counter').firstElementChild;
-const inkrBtn = document.querySelector('#counter').lastElementChild;
-
-inkrBtn.addEventListener('click', event => {
-  // console.log("Вешаю слушателя события на целевую кнопку");
-  valueEl += 1;
-
-  counterValue.innerText = valueEl;
-});
-
-dekrBtn.addEventListener('click', event => {
-  // console.log("Снимаю слушателя события с целевой кнопки");
-  valueEl -= 1;
-
-  counterValue.innerText = valueEl;
-  // console.log("counterValue", counterValue);
-});
+const decrementBtn = document.querySelector("[data-action='decrement']");
+const incrementBtn = document.querySelector("[data-action='increment']");
+const valueNum = document.querySelector("#value");
+let counterValue = 0;
+decrementBtn.addEventListener("click", handleClickDecrementBtn);
+incrementBtn.addEventListener("click", handleClickIncrementBtn);
+function handleClickDecrementBtn() {
+    counterValue -= 1;
+    return addMarkup(counterValue);
+}
+function handleClickIncrementBtn() {
+    counterValue += 1;
+    return addMarkup(counterValue);
+}
+function addMarkup(value) {
+    return valueNum.innerHTML = `${value}`;
+}
